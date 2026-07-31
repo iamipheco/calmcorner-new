@@ -6,6 +6,7 @@ import { waLink } from '../siteConfig'
 
 export default function Services() {
   return (
+
     <>
       <PageHero
         eyebrow="What We Do"
@@ -22,7 +23,7 @@ export default function Services() {
         <div className="container-custom flex flex-wrap items-center justify-between gap-8">
           <Reveal>
             <h2 className="text-ink mb-1.5">Not sure which service fits?</h2>
-            <p className="text-ink/75 font-semibold">Tell us what you&rsquo;re trying to do — we&rsquo;ll point you the right way.</p>
+            <p className="text-ink/75 font-semibold">Tell us what you&rsquo; are trying to do — we&rsquo;ll point you the right way.</p>
           </Reveal>
           <a href={waLink()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">Chat on WhatsApp</a>
         </div>
