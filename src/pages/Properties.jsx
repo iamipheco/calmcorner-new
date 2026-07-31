@@ -39,11 +39,6 @@ export default function Properties() {
                 <span className="eyebrow">Atuma-Iga, Delta State</span>
                 <h2 className="mt-3 text-3xl font-bold">CalmVilla Residence</h2>
 
-                <p className="mt-5 text-muted text-lg">
-                  Secure premium residential plots in one of Delta State's
-                  fastest-growing investment corridors.
-                </p>
-
                 <ul className="feature-list mt-8 grid gap-3">
                   <li>Registered Survey</li>
                   <li>Deed of Assignment</li>
