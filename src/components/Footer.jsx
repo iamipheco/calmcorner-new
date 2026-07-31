@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo-foot.png'
 import Socials from './Socials'
 import { SITE } from '../siteConfig'
 
@@ -9,10 +9,9 @@ export default function Footer() {
       <div className="container-custom">
         <div className="grid md:grid-cols-[1.3fr_1fr_1fr_1.1fr] gap-10 pb-12 border-b border-white/10">
           <div>
-            <img src={logo} alt={SITE.companyName} className="h-10 mb-4 brightness-0 invert" />
-            <p className="text-lime text-sm font-semibold italic mb-3">{SITE.slogan}</p>
+            <img src={logo} alt={SITE.companyName} className="h-15 mb-4 brightness-0 invert" />
             <p className="text-sm max-w-[34ch] mb-6">
-              Client-focused real estate, helping individuals, families and investors secure valuable property with confidence.
+              We are client-focused real estate, helping individuals, families and investors secure valuable property with confidence.
             </p>
             <Socials />
           </div>

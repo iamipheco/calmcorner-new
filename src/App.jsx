@@ -10,6 +10,7 @@ import Services from './pages/Services'
 import Properties from './pages/Properties'
 import EstateDetail from './pages/EstateDetail'
 import Portal from './pages/Portal'
+import PortalDashboard from './pages/PortalDashboard'
 import Contact from './pages/Contact'
 import Realtors from './pages/Realtors'
 import NotFound from './pages/NotFound'
@@ -40,6 +41,7 @@ function AnimatedRoutes() {
           <Route path="/properties" element={<Properties />} />
           <Route path="/properties/:slug" element={<EstateDetail />} />
           <Route path="/portal" element={<Portal />} />
+          <Route path="/portal/dashboard" element={<PortalDashboard />} />
           <Route path="/realtors" element={<Realtors />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

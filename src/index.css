@@ -81,7 +81,7 @@
   .field input,
   .field select,
   .field textarea {
-    @apply w-full rounded-lg border border-line bg-white px-3.5 py-3 text-sm font-body text-slate transition-colors focus:border-lime-deep focus:outline-none;
+    @apply w-full rounded-lg border border-line bg-white px-3.5 py-3 text-base font-body text-slate transition-colors focus:border-lime-deep focus:outline-none;
   }
   .field textarea {
     @apply min-h-[110px] resize-y;

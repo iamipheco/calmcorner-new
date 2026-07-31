@@ -1,15 +1,14 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import logo from '../assets/logo.png'
-import { waLink } from '../siteConfig'
 
 const LINKS = [
   { to: '/', label: 'Home', end: true },
   { to: '/about', label: 'About' },
   { to: '/services', label: 'Services' },
   { to: '/properties', label: 'Properties' },
-  { to: '/realtors', label: 'Realtor Network' },
+  //{ to: '/realtors', label: 'Realtor Network' },
   { to: '/contact', label: 'Contact' },
 ]
 
@@ -40,15 +39,19 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-4">
-          <a
-            href={waLink()}
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className="flex items-center gap-3">
+          <Link
+            to="/portal?mode=signin"
+            className="hidden lg:inline-flex font-semibold text-sm text-slate hover:text-ink"
+          >
+            Login
+          </Link>
+          <Link
+            to="/portal"
             className="btn btn-lime hidden lg:inline-flex"
           >
-            Chat on WhatsApp
-          </a>
+            Get Started
+          </Link>
           <button
             className="lg:hidden p-1.5"
             aria-label="Toggle menu"
@@ -80,9 +83,14 @@ export default function Header() {
                 </li>
               ))}
               <li>
-                <a href={waLink()} target="_blank" rel="noopener noreferrer" className="btn btn-lime w-full justify-center">
-                  Chat on WhatsApp
-                </a>
+                <Link to="/portal?mode=signin" onClick={() => setOpen(false)} className="btn btn-outline-dark w-full justify-center">
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link to="/portal" onClick={() => setOpen(false)} className="btn btn-lime w-full justify-center">
+                  Get Started
+                </Link>
               </li>
             </ul>
           </motion.nav>
