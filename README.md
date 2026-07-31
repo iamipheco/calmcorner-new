@@ -327,3 +327,45 @@ it goes live. After `npm install`, check in particular:
 
 If anything looks off, tell me what you're seeing and I'll fix it —
 having a screenshot helps a lot here, same as always.
+
+## Mobile + desktop responsive audit
+
+Adopted your latest uploaded version as the new baseline (the substantial
+rework you did to the estates data, EstateCard, FeaturedProperties,
+Testimonials, WhyChooseCalmcorner, MissionVision, Leadership, and more —
+all of that is preserved as-is). On top of that, found and fixed:
+
+- **`StatCard.jsx`** — the big stat numbers ("100%", "24/7", etc.) had no
+  font size at all below the `sm` breakpoint, so they rendered at
+  unstyled browser-default size on most phones instead of the intended
+  large display size. This affects both the Homepage hero and the About
+  page Statistics section.
+- **Form inputs sitewide** — were `text-sm` (14px). Below 16px, iOS
+  Safari auto-zooms the whole page when a field is focused. Bumped to
+  16px across every form (Contact, both waitlist forms).
+- **`FeaturedProperties.jsx`** — `estate.highlights.slice(0, 4)` would
+  crash the whole page (blank white screen) the moment an estate without
+  a `highlights` field gets added to `FEATURED_ESTATES` — the same class
+  of bug that broke the About page earlier. Added a safe fallback.
+  Also removed a dead `mobile` check that computed the exact same value
+  on both branches of a ternary.
+- **Oversized mobile images** — `FeaturedProperties.jsx` (560px tall)
+  and `EstateDetail.jsx` (fixed 480px) both had very tall fixed image
+  heights that looked disproportionate on phone screens. Now scale up
+  progressively (mobile → tablet → desktop) instead of being tall at
+  every size.
+- **`WhoWeAre.jsx`** — `border-l-ink-soft` only drew a left border
+  (likely a typo for a full border); fixed to `border-ink-soft`.
+- **Missing wave divider** on the Homepage between Why Choose Calmcorner
+  (dark) and Testimonials (light cream) — was a hard color cut with no
+  transition; added the matching divider color.
+- A handful of paragraphs had a responsive text size (`md:text-lg`) but
+  no base size for mobile — added explicit `text-base` throughout for
+  correctness (mostly invisible in practice since it matches the browser
+  default, but worth being explicit).
+
+Also swept the whole codebase for grid/flex breakpoints, fixed-width
+elements, and touch-target sizing — the vast majority of what's there
+(ServicesGrid, WhyChooseCalmcorner, Leadership, HowWeWork, MissionVision,
+Header's mobile menu, Footer) was already properly responsive with good
+breakpoint coverage, so there wasn't much else that needed changing.

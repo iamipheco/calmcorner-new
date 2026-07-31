@@ -112,7 +112,7 @@ export default function HeroSlider() {
               text={slide.heading}
               className="text-white mt-3 mb-5 text-4xl md:text-6xl leading-[1.1]"
             />
-            <p className="text-white/70 md:text-lg mb-9 max-w-[58ch]">{slide.lede}</p>
+            <p className="text-white/70 text-base md:text-lg mb-9 max-w-[58ch]">{slide.lede}</p>
             <div className="flex flex-wrap gap-4">
               {slide.primary.to ? (
                 <Link to={slide.primary.to} className="btn btn-lime">{slide.primary.label}</Link>

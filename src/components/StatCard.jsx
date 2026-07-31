@@ -18,7 +18,7 @@ export default function StatCard({ icon: Icon, value, label, dark = true }) {
       >
         <Icon className="w-5 h-5" strokeWidth={2} />
       </motion.div>
-      <span className={`font-display sm:text-2xl md:text-3xl font-semibold block leading-tight ${dark ? 'text-lime' : 'text-ink'}`}>
+      <span className={`font-display text-xl sm:text-2xl md:text-3xl font-semibold block leading-tight ${dark ? 'text-lime' : 'text-ink'}`}>
         {value}
       </span>
       <span className={`text-sm mt-1.5 block ${dark ? 'text-white/60' : 'text-muted'}`}>{label}</span>

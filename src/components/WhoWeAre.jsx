@@ -9,7 +9,7 @@ export default function WhoWeAre({ dividerFill }) {
         <div className="grid md:grid-cols-2 gap-14 md:gap-20 items-center">
           {/* Image */}
           <Reveal>
-            <div className="relative rounded-2xl overflow-hidden border border-l-ink-soft shadow-xs h-90 md:h-110">
+            <div className="relative rounded-2xl overflow-hidden border border-ink-soft shadow-xs h-90 md:h-110">
               <img
                 src="/images/hero/slide-1.jpg"
                 alt="A Calmcorner-guided home interior"
@@ -26,7 +26,7 @@ export default function WhoWeAre({ dividerFill }) {
               Proudly Nigerian real estate company built on trust
             </h2>
 
-            <p className="text-neutral-400 md:text-lg mb-4">
+            <p className="text-neutral-400 text-base md:text-lg mb-4">
               At Calmcorner Homes &amp; Properties Ltd, we believe that owning
               property should be a journey defined by confidence, clarity, and
               peace of mind. Every piece of land, every home, and every
@@ -34,7 +34,7 @@ export default function WhoWeAre({ dividerFill }) {
               dream fulfilled and a future secured.
             </p>
 
-            <p className="text-neutral-400 md:text-lg mb-7">
+            <p className="text-neutral-400 text-base md:text-lg mb-7">
               We place integrity, due diligence, and legal compliance at the
               center of every transaction, ensuring every property we present is
               thoroughly verified and every client receives honest guidance from

@@ -43,10 +43,7 @@ export default function FeaturedProperties({ dividerFill }) {
   }, [paused]);
 
   const estate = FEATURED_ESTATES[active];
-  const mobile = typeof window !== "undefined" && window.innerWidth < 1024;
-  const highlights = mobile
-    ? estate.highlights.slice(0, 4)
-    : estate.highlights.slice(0, 4);
+  const highlights = (estate.highlights || []).slice(0, 4);
 
   return (
     <section className="relative bg-white py-16 lg:py-24">
@@ -74,7 +71,7 @@ export default function FeaturedProperties({ dividerFill }) {
                   className="grid grid-cols-1 lg:grid-cols-[45%_55%]"
                 >
                
-                  <div className="relative h-[560px] sm:h-[650px] lg:h-[720px] overflow-hidden bg-neutral-100">
+                  <div className="relative h-72 sm:h-96 lg:h-[720px] overflow-hidden bg-neutral-100">
                 
                     <img
                       src={estate.image}
@@ -93,6 +90,15 @@ export default function FeaturedProperties({ dividerFill }) {
                     <h2 className="mt-4 text-3xl lg:text-5xl font-bold">
                       {estate.name}
                     </h2>
+
+                    {estate.price && (
+                      <div className="mt-4 flex items-baseline gap-3">
+                        {estate.originalPrice && (
+                          <span className="text-muted line-through">{estate.originalPrice}</span>
+                        )}
+                        <span className="font-display text-2xl font-semibold text-lime-deep">{estate.price}</span>
+                      </div>
+                    )}
 
                     <div className="mt-8 space-y-4">
                       {highlights.map((item) => {
@@ -120,10 +126,10 @@ export default function FeaturedProperties({ dividerFill }) {
                       </a>
 
                       <Link
-                        to="/properties"
+                        to={`/properties/${estate.slug}`}
                         className="btn btn-lime w-full sm:w-auto"
                       >
-                        Explore More →
+                        View Estate Details →
                       </Link>
                     </div>
                   </div>

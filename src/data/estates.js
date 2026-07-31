@@ -17,9 +17,24 @@ export const FEATURED_ESTATES = [
     mapQuery: "Atuma-Iga, Delta State, Nigeria",
 
     price: "₦1.8M Promo Price",
+    originalPrice: "₦3.0M Actual Price",
+
+    // Add more entries here as additional plot sizes become available —
+    // the selector on the estate detail page updates automatically.
+    plotSizes: [
+      { size: "464 SQM", price: "₦1.8M", originalPrice: "₦3.0M" },
+    ],
 
     description:
-      "CalmVilla Residence is Calmcorner's flagship estate located in one of Delta State's fastest-growing investment corridors.",
+      "Located in Atuma-Iga, a fast-developing part of Oshimili North in Delta State, CalmVilla Residence offers a rare early-entry opportunity for investors and homeowners seeking genuine value close to Asaba. This estate is strategically positioned within easy reach of Asaba International Airport and the surrounding communities, and boasts a calm, dry, buildable environment ideal for residential development or long-term investment.",
+
+    landmarks: [
+      "Behind Olaedo Pineleaf Estate",
+      "15 mins drive from Asaba Int'l Airport",
+      "10 mins drive from Asaba Ogwasi",
+      "5 mins drive from Otulu Junction",
+      "2 mins drive from Atuma-Iga Health Center",
+    ],
 
     highlights: [
       {
@@ -55,6 +70,11 @@ export const FEATURED_ESTATES = [
         label: "Secure Investment",
       },
     ],
+
+    // Link to the specific Facebook post about this estate once you have
+    // one — until then this is left unset and falls back to the main
+    // Calmcorner Facebook page automatically.
+    facebookUrl: "",
 
     whatsappMessage:
       "Hello Calmcorner, I'm interested in CalmVilla Residence. Please send me more information.",
@@ -197,8 +217,6 @@ export const OTHER_ESTATES = [
       "A future Calmcorner development with premium infrastructure and secure investment opportunities.",
 
     tag: "Coming Soon",
-
-    image: "/images/properties/harmony-gardens-flyer.jpg",
 
     gradientIndex: 0,
 

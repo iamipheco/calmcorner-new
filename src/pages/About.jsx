@@ -3,11 +3,11 @@ import { motion } from 'framer-motion'
 import SectionHeading from '../components/SectionHeading'
 import Reveal from '../components/Reveal'
 import PageHero from '../components/PageHero'
+import CTABand from '../components/CTABand'
 import WaveDivider from '../components/WaveDivider'
 import StatCard from '../components/StatCard'
 import HowWeWork from '../components/HowWeWork'
 import Testimonials from '../components/Testimonials'
-import { waLink, SITE } from '../siteConfig'
 import {
   OUR_STORY,
   PURPOSE_VISION_MISSION,
@@ -148,15 +148,10 @@ export default function About() {
       <Testimonials dividerFill="#8CD300" />
 
       {/* CTA */}
-      <section className="bg-lime text-ink py-16 md:py-20">
-        <div className="container-custom flex flex-wrap items-center justify-between gap-8">
-          <Reveal>
-            <h2 className="text-ink mb-1.5 text-2xl md:text-3xl">Have a question about a property?</h2>
-            <p className="text-ink/75 font-semibold">We&rsquo;re a message away on WhatsApp.</p>
-          </Reveal>
-          <a href={waLink()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">Chat on WhatsApp</a>
-        </div>
-      </section>
+      <CTABand
+        title="Have a question about a property?"
+        subtitle="We're a message away on WhatsApp."
+      />
     </>
   )
 }
