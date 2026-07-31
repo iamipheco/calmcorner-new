@@ -40,15 +40,15 @@ function LeaderPhoto({photo,name}){
 
 export default function Leadership({dividerFill}){
  return (
-<section className="relative overflow-hidden bg-ink py-16 md:py-28 text-white">
+<section className="relative overflow-hidden bg-ink py-10 md:py-16 text-white">
 <div className="absolute -left-24 top-24 h-96 w-96 rounded-full bg-lime/5 blur-3xl"/>
 <div className="absolute -right-20 bottom-10 h-80 w-80 rounded-full bg-lime/5 blur-3xl"/>
 <div className="container-custom relative z-10">
 <SectionHeading eyebrow="Leadership" title="Meet the Founders" lede="Driven by integrity, innovation, and a shared commitment to excellence, our founders are dedicated to making property ownership transparent, secure, and rewarding." light/>
 <div>
 {LEADERS.map(l=>(
-<div key={l.name} className="py-16 md:py-20">
-<div className={`grid items-center gap-12 lg:gap-20 md:grid-cols-2 ${l.reverse?'md:[&>*:first-child]:order-2':''}`}>
+<div key={l.name} className="py-8 md:py-16">
+<div className={`grid items-center px-4 gap-8 lg:gap-16 md:grid-cols-2 ${l.reverse?'md:[&>*:first-child]:order-2':''}`}>
 <Reveal><div className="group relative mx-auto max-w-md md:max-w-none"><div className="rounded-3xl border border-white/10 bg-white/5 p-3 shadow-2xl backdrop-blur-sm"><LeaderPhoto photo={l.photo} name={l.name}/></div><div className="absolute -bottom-5 -right-5 h-24 w-24 rounded-full bg-lime/10 blur-2xl"/></div></Reveal>
 <Reveal delay={0.1}>
 <span className="mb-5 inline-flex items-center rounded-full border border-lime/20 bg-lime/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-lime">{l.tag}</span>

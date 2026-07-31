@@ -187,9 +187,9 @@ export default function EstateDetail() {
                 <div className="mt-8 border-t border-line pt-6">
                   <div>
                     {displayOriginalPrice && (
-                      <span className="block text-sm text-muted line-through">{displayOriginalPrice}</span>
+                      <span className="block text-lg text-muted line-through">{displayOriginalPrice}</span>
                     )}
-                    <span className="font-display text-2xl md:text-3xl font-semibold text-ink">{displayPrice}</span>
+                    <span className="font-display text-5xl md:text-6xl font-semibold text-ink">{displayPrice}</span>
                   </div>
 
                   {plotSizes.length > 0 && (

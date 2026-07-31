@@ -35,7 +35,7 @@ const next=(active+1)%TESTIMONIALS.length;
 useEffect(()=>{const t=setInterval(()=>setActive(v=>(v+1)%TESTIMONIALS.length),6000);return()=>clearInterval(t)},[]);
 const item=TESTIMONIALS[active];
 return(
-<section className="relative py-16 lg:py-24 overflow-hidden" style={{background:"#F7F4EF"}}>
+<section className="relative py-4 lg:py-12 pb-15 md:pb-28 overflow-hidden" style={{background:"#F7F4EF"}}>
 <div className="absolute top-20 left-0 lg:left-10 w-72 h-72 rounded-full bg-lime-300/20 blur-3xl"/>
 <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-lime-400/10 blur-3xl"/>
 <div className="container-custom relative z-10 px-5 sm:px-6 lg:px-0">

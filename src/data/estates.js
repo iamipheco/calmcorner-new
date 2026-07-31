@@ -47,7 +47,7 @@ export const FEATURED_ESTATES = [
       },
       {
         icon: "land",
-        label: "Dry Land",
+        label: "Table Dry Land",
       },
       {
         icon: "payment",

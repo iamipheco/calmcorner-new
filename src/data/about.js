@@ -64,27 +64,33 @@ export const WHY_CHOOSE_REASONS = [
 // "How We Work" — the 4-step client journey.
 export const HOW_WE_WORK = [
   {
-    num: '01',
-    icon: 'message',
-    title: 'Consultation',
-    body: "Tell us what you're looking for — a home, land, or an investment — and we listen before we recommend anything.",
+    num: "01",
+    icon: "message",
+    title: "Consultation",
+    body: "Tell us about your property goals, preferred location, and budget.   Our experts will recommend the best options tailored to your needs.",
   },
   {
-    num: '02',
-    icon: 'shield',
-    title: 'Verification',
-    body: "We verify the property's title, documentation, and legal standing before it ever reaches you.",
+    num: "02",
+    icon: "map",
+    title: "Site Inspection",
+    body: "Visit the property with our team to evaluate the location, infrastructure, environment, and investment potential before making a decision.",
   },
   {
-    num: '03',
-    icon: 'file',
-    title: 'Agreement',
-    body: 'Review clear terms, choose a payment plan that fits your budget, and sign with full understanding of what you\'re getting.',
+    num: "03",
+    icon: "shield",
+    title: "Property Verification",
+    body: "We conduct thorough due diligence by verifying ownership, title documents, and legal status to ensure every property is genuine and secure.",
   },
   {
-    num: '04',
-    icon: 'key',
-    title: 'Handover',
-    body: 'Receive your documentation and take ownership, with our support continuing long after the transaction closes.',
+    num: "04",
+    icon: "wallet",
+    title: "Payment & Documentation",
+    body: "Complete your purchase through a convenient payment plan and receive all necessary legal documents with transparency.",
   },
-]
+  {
+    num: "05",
+    icon: "key",
+    title: "Allocation & Ownership",
+    body: "Receive your property allocation and documents, with our team providing continuous support even after your purchase.",
+  },
+];

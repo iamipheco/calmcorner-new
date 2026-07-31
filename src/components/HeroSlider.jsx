@@ -13,7 +13,7 @@ import { waLink } from '../siteConfig'
 const SLIDES = [
   {
     image: "/images/hero/slide-1.jpg",
-    eyebrow: "Welcome to Calmcorner Homes & Properties Ltd",
+    eyebrow: "Welcome to C.H.P Ltd",
     heading: "Secure Today. Build Tomorrow. Invest with Confidence.",
     lede:
       "Own genuine, strategically located land and premium real estate with complete peace of mind. We help individuals, families, and investors make smart property decisions backed by integrity, transparency, and lasting value.",

@@ -27,7 +27,7 @@ export default function ServicesSection({
             <span className="inline-block bg-lime text-ink text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-full mb-5">
               Our Services
             </span>
-            <h2 className="text-ink mb-5 text-2xl md:text-3xl">
+            <h2 className="text-ink mb-5 text-2xl md:text-5xl">
               Real estate solutions built around you
             </h2>
             <p className="text-muted text-lg">{SERVICES_INTRO}</p>
