@@ -9,13 +9,13 @@ const CARDS = [
     icon: Flag,
     label: "Our Mission",
     body:
-      "To provide trusted, transparent, and value-driven real estate solutions that empower individuals, families, businesses, and investors to achieve their property goals with confidence, through integrity, innovation, and customer-focused service at every step.",
+      "To be one of Nigeria's most trusted real estate companies, delivering excellence through innovation, integrity, and value.",
   },
   {
     icon: Eye,
     label: "Our Vision",
     body:
-      "To become one of Nigeria's most trusted, innovative, and respected real estate companies, recognized for delivering excellence in property sales, development, construction, consultancy, and investment solutions.",
+      "To deliver trusted, transparent, and value-driven real estate solutions that empower clients to achieve their property goals with confidence.",
   },
 ];
 

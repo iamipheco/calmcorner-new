@@ -1,4 +1,4 @@
-import { Eye, Flag, Target, CheckCircle2, ShieldCheck, Headphones, FileCheck2, Wallet } from 'lucide-react'
+import { Eye, Flag, Target, CheckCircle2, ShieldCheck, Headphones, FileCheck2, Wallet} from 'lucide-react'
 import { motion } from 'framer-motion'
 import SectionHeading from '../components/SectionHeading'
 import Reveal from '../components/Reveal'
@@ -39,7 +39,7 @@ export default function About() {
             <div>
               <Reveal>
                 <span className="eyebrow">Our Story</span>
-                <h2 className="mt-3.5 mb-8 text-xl md:text-3xl">Three things worth knowing about us</h2>
+                <h2 className="mt-3.5 mb-8 text-4xl md:text-5xl">Three things worth knowing about us</h2>
               </Reveal>
               <div className="grid gap-8">
                 {OUR_STORY.map((s, i) => (
@@ -70,7 +70,7 @@ export default function About() {
       </section>
 
       {/* Core Values — C.A.L.M.C.O.R.N.E.R */}
-      <section className="relative bg-ink text-white py-24 md:py-28 overflow-hidden">
+      <section className="relative bg-ink text-white py-8 md:py-12 pb-28 overflow-hidden">
         <div className="container-custom relative z-10">
           <SectionHeading eyebrow="Our core values" title="C.A.L.M.C.O.R.N.E.R" light center />
           <div className="grid sm:grid-cols-2 gap-5">
@@ -93,9 +93,9 @@ export default function About() {
       </section>
 
       {/* Vision / Mission / Purpose */}
-      <section className="py-24 md:py-28 bg-white">
+      <section className="py-8 md:py-12 pb-20 bg-white">
         <div className="container-custom">
-          <SectionHeading eyebrow="What drives us" title="Vision, Mission and Purpose" center />
+          <SectionHeading eyebrow="What drives us" title="Vision, Mission & Purpose" center />
           <div className="grid md:grid-cols-3 gap-6">
             {PURPOSE_VISION_MISSION.map((item, i) => {
               const Icon = PVM_ICONS[item.icon]
@@ -125,9 +125,9 @@ export default function About() {
       </section>
 
       {/* Why Choose Calmcorner */}
-      <section className="py-24 md:py-28 bg-stone">
+      <section className="py-8 md:py-12 pb-20 bg-stone">
         <div className="container-custom">
-          <SectionHeading eyebrow="Why choose Calmcorner" title="Your trusted partner in every property journey" lede={WHY_CHOOSE_INTRO} />
+          <SectionHeading eyebrow="Why choose Calmcorner" title="Your peaceful path to property ownership" lede={WHY_CHOOSE_INTRO} />
           <div className="grid md:grid-cols-2 gap-x-10 gap-y-6">
             {WHY_CHOOSE_REASONS.map((r, i) => (
               <Reveal delay={i * 0.06} key={r.lead}>

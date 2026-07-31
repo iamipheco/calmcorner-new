@@ -15,32 +15,32 @@ const FEATURES = [
   {
     icon: BadgeCheck,
     label: '100% Verified Properties',
-    body: 'Every property is carefully verified through due diligence for safer, legally compliant investments.',
+    //body: 'Every property is carefully verified through due diligence for safer, legally compliant investments.',
   },
   {
     icon: FileCheck2,
     label: 'Transparent Documentation',
-    body: 'Clear ownership records and complete documentation give you confidence at every stage.',
+    //body: 'Clear ownership records and complete documentation give you confidence at every stage.',
   },
   {
     icon: Handshake,
     label: 'Honest Transactions',
-    body: 'Open communication, fair dealings and no hidden costs throughout your property journey.',
+    //body: 'Open communication, fair dealings and no hidden costs throughout your property journey.',
   },
   {
     icon: WalletCards,
     label: 'Flexible Payment Plans',
-    body: 'Convenient payment options designed to make property ownership more accessible.',
+    //body: 'Convenient payment options designed to make property ownership more accessible.',
   },
   {
     icon: Building2,
     label: 'Quality Development',
-    body: 'Modern, durable properties built with quality craftsmanship and long-term value in mind.',
+    //body: 'Modern, durable properties built with quality craftsmanship and long-term value in mind.',
   },
   {
     icon: Headphones,
     label: 'Dedicated Support',
-    body: 'Our relationship continues after the sale with dependable support whenever you need us.',
+    //body: 'Our relationship continues after the sale with dependable support whenever you need us.',
   },
 ]
 

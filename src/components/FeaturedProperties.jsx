@@ -46,7 +46,7 @@ export default function FeaturedProperties({ dividerFill }) {
   const highlights = (estate.highlights || []).slice(0, 4);
 
   return (
-    <section className="relative bg-white py-16 lg:py-24">
+    <section className="relative bg-white py-6 pb-20 lg:py-16">
       <div className="container-custom">
         <SectionHeading
           eyebrow="Featured Investment"
@@ -55,7 +55,7 @@ export default function FeaturedProperties({ dividerFill }) {
         />
 
         <div
-          className="w-full px-2 lg:px-8 xl:px-16"
+          className="w-full lg:px-8 xl:px-16"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
@@ -70,9 +70,7 @@ export default function FeaturedProperties({ dividerFill }) {
                   transition={{ duration: 0.45 }}
                   className="grid grid-cols-1 lg:grid-cols-[45%_55%]"
                 >
-               
-                  <div className="relative h-72 sm:h-96 lg:h-[720px] overflow-hidden bg-neutral-100">
-                
+                  <div className="relative h-72 sm:h-96 lg:h-180 overflow-hidden bg-neutral-100">
                     <img
                       src={estate.image}
                       alt={estate.name}
@@ -82,25 +80,16 @@ export default function FeaturedProperties({ dividerFill }) {
                       {estate.tag}
                     </span>
                   </div>
-                  <div className="flex justify-center flex-col p-8 lg:p-16 bg-white lg:min-h-[720px]">
+                  <div className="flex justify-center flex-col p-8 lg:p-16 bg-white lg:min-h-180">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-lime-deep">
                       {estate.location}
                     </p>
 
-                    <h2 className="mt-4 text-3xl lg:text-5xl font-bold">
+                    <h2 className="mt-4 text-2xl sm:text-5xl lg:text-6xl font-bold">
                       {estate.name}
                     </h2>
 
-                    {estate.price && (
-                      <div className="mt-4 flex items-baseline gap-3">
-                        {estate.originalPrice && (
-                          <span className="text-muted line-through">{estate.originalPrice}</span>
-                        )}
-                        <span className="font-display text-2xl font-semibold text-lime-deep">{estate.price}</span>
-                      </div>
-                    )}
-
-                    <div className="mt-8 space-y-4">
+                    <div className="mt-4 text-sm space-y-2">
                       {highlights.map((item) => {
                         const Icon = icons[item.icon] || FileCheck2;
                         return (
@@ -114,8 +103,31 @@ export default function FeaturedProperties({ dividerFill }) {
                         );
                       })}
                     </div>
+                    {estate.price && (
+                      <div className="mt-8 rounded-2xl border border-line bg-stone-50 p-6">
+                        <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted">
+                          Starting Price
+                        </span>
 
-                    <div className="mt-10 flex flex-col sm:flex-row gap-3">
+                        <div className="mt-3 flex flex-wrap items-end gap-4">
+                          {estate.originalPrice && (
+                            <span className="text-lg sm:text-2xl text-muted line-through">
+                              {estate.originalPrice}
+                            </span>
+                          )}
+
+                          <span className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-lime-deep">
+                            {estate.price}
+                          </span>
+                        </div>
+
+                        <p className="mt-3 text-sm text-muted">
+                          Flexible payment plans available.
+                        </p>
+                      </div>
+                    )}
+
+                    <div className="mt-6 flex flex-col sm:flex-row gap-3">
                       <a
                         href={waLink(estate.whatsappMessage)}
                         target="_blank"

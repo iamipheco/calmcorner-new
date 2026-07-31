@@ -19,11 +19,11 @@ import logoIcon from '../assets/logo-icon.png'
  */
 export default function PageHero({ eyebrow, title, description, tagline, cta, dividerFill = '#FFFFFF' }) {
   return (
-    <section className="relative bg-ink text-white overflow-hidden min-h-[440px] md:min-h-[500px] flex items-center justify-center py-24">
+    <section className="relative bg-ink text-white overflow-hidden min-h-45 md:min-h-55 flex items-center justify-center py-20 md:py-28">
       {/* Floating logo watermark — decorative brand mark, not the primary logo */}
       <div
         aria-hidden="true"
-        className="hidden sm:block pointer-events-none absolute -right-20 md:-right-12 top-1/2 -translate-y-1/2 w-[340px] md:w-[460px] lg:w-[560px] z-0 opacity-[0.08] blur-[3px]"
+        className="hidden sm:block pointer-events-none absolute -right-20 md:-right-12 top-1/2 -translate-y-1/2 w-[340px] md:w-115 lg:w-140 z-0 opacity-[0.08] blur-[3px]"
         style={{
           maskImage: 'radial-gradient(circle at 60% 50%, black 35%, transparent 72%)',
           WebkitMaskImage: 'radial-gradient(circle at 60% 50%, black 35%, transparent 72%)',
@@ -33,7 +33,7 @@ export default function PageHero({ eyebrow, title, description, tagline, cta, di
       </div>
 
       <div className="container-custom relative z-10">
-        <Reveal className="max-w-[760px] mx-auto text-center">
+        <Reveal className="max-w-190 mx-auto text-center">
           <span className="eyebrow eyebrow-light justify-center">{eyebrow}</span>
           {tagline && <p className="italic text-lime font-display text-lg mt-3">&ldquo;{tagline}&rdquo;</p>}
           <h1 className="text-white mt-4 text-4xl md:text-5xl">{title}</h1>

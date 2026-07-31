@@ -43,7 +43,7 @@ const CARDS = [
 
 export default function ServicesGrid({ dividerFill }) {
   return (
-    <section className="relative overflow-hidden bg-mist py-20 pb-28 md:py-24 md:pb-32">
+    <section className="relative overflow-hidden bg-mist py-8 pb-28 md:py-12 md:pb-32">
       {/* Background Glow */}
       <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-lime/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-72 w-72 rounded-full bg-lime/10 blur-3xl" />
@@ -57,9 +57,9 @@ export default function ServicesGrid({ dividerFill }) {
             </span>
 
             <h2 className="mt-5 text-3xl font-bold leading-tight text-ink sm:text-4xl md:text-5xl">
-              Everything You Need for a
+              Your Peaceful Path to 
               <span className="block text-lime-deep">
-                Successful Property Journey
+                Property Ownership
               </span>
             </h2>
 
