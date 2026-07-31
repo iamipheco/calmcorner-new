@@ -43,7 +43,7 @@
    ============================================================ */
 @layer components {
   .container-custom {
-    @apply mx-auto max-w-295 px-7 md:px-8;
+    @apply mx-auto max-w-295 px-4 md:px-8;
   }
   /* ---------------------------------
      Eyebrows
