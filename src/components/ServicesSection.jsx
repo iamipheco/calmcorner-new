@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Reveal from "./Reveal";
 import WaveDivider from "./WaveDivider";
-import { CardRipples } from "./Ripples";
 import { SERVICES, SERVICES_INTRO } from "../data/services";
 import servicesImg from "../assets/services.jpg";
 
