@@ -12,9 +12,11 @@ export const FEATURED_ESTATES = [
       "/images/properties/calmvilla-flyer.jpg",
     ],
 
-    location: "Atuma-Iga, Delta State",
+    area: "Atuma-Iga, Delta State",
+    location: "Oshimili-North LGA, Atuma-Iga, Delta State",
 
     mapQuery: "Atuma-Iga, Delta State, Nigeria",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3965.3542712440076!2d6.565580106468185!3d6.348153222786213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjAnNTUuNyJOIDbCsDM0JzAyLjQiRQ!5e0!3m2!1sen!2sng!4v1785579990399!5m2!1sen!2sng",
 
     price: "₦1.8M Promo Price",
     originalPrice: "₦3.0M Actual Price",
@@ -38,36 +40,28 @@ export const FEATURED_ESTATES = [
 
     highlights: [
       {
-        icon: "survey",
-        label: "Registered Survey",
+        icon: "instant",
+        label: "Instant Allocation",
+      },
+      {
+        icon: "land",
+        label: "100% Table Dry Land",
+      },
+      {
+        icon: "build",
+        label: "Buy & Build Immediately",
       },
       {
         icon: "deed",
         label: "Deed of Assignment",
       },
       {
-        icon: "land",
-        label: "Table Dry Land",
-      },
-      {
-        icon: "payment",
-        label: "Flexible Payment Plan",
+        icon: "survey",
+        label: "Registered Survey",
       },
       {
         icon: "road",
         label: "Good Road Network",
-      },
-      {
-        icon: "water",
-        label: "Portable Water Supply",
-      },
-      {
-        icon: "power",
-        label: "Electricity Available",
-      },
-      {
-        icon: "security",
-        label: "Secure Investment",
       },
     ],
 
