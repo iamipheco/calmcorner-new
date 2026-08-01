@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+/* ============================================================
+   Calmcorner Design Tokens (Tailwind CSS v4.3.3)
+   ============================================================ */
+@theme {
+  /* Colors */
+  --color-ink: #0a1220;
+  --color-ink-soft: #131e30;
+  --color-lime: #8cd300;
+  --color-lime-deep: #6fa800;
+  --color-lime-soft: #eaf7d2;
+  --color-mist: #f6faef;
+  --color-gold: #d4af37;
+  --color-gold-soft: #f3e7c2;
+  --color-stone: #f4f4f1;
+  --color-slate: #262a22;
+  --color-muted: #676f5f;
+  --color-line: #e5e5e1;
+  /* Fonts */
+  --font-display: "Fraunces", ui-serif, serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-slate font-body antialiased leading-relaxed;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold  tracking-tight text-ink;
+  }
+}
+/* ============================================================
+   Components
+   ============================================================ */
+@layer components {
+  .container-custom {
+    @apply mx-auto max-w-295 px-5 md:px-8;
+  }
+  /* ---------------------------------
+     Eyebrows
+  ---------------------------------- */
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 font-body text-xs font-bold uppercase tracking-[0.16em] text-lime-deep;
+  }
+  .eyebrow-light {
+    @apply text-lime;
+  }
+  /* ---------------------------------
+     Buttons
+  ---------------------------------- */
+  .btn {
+    @apply inline-flex items-center gap-2.5 rounded-lg px-6 py-3.5 font-body text-sm font-bold whitespace-nowrap transition-all duration-200;
+  }
+  .btn-lime {
+    @apply bg-lime text-ink hover:bg-lime-deep hover:-translate-y-0.5;
+  }
+  .btn-outline-light {
+    @apply border border-white/30 text-white hover:border-lime hover:text-lime hover:-translate-y-0.5;
+  }
+  .btn-outline-dark {
+    @apply border border-ink text-ink hover:bg-ink hover:text-white hover:-translate-y-0.5;
+  }
+  .btn-whatsapp {
+    @apply bg-ink text-lime hover:bg-ink-soft hover:-translate-y-0.5;
+  }
+  /* ---------------------------------
+     Forms
+  ---------------------------------- */
+  .field label {
+    @apply mb-2 block text-xs font-bold uppercase tracking-wide text-muted;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    @apply w-full rounded-lg border border-line bg-white px-3.5 py-3 text-base font-body text-slate transition-colors focus:border-lime-deep focus:outline-none;
+  }
+  .field textarea {
+    @apply min-h-[110px] resize-y;
+  }
+  /* ---------------------------------
+     Feature List
+  ---------------------------------- */
+  .feature-list li {
+    @apply flex items-start gap-3 text-[0.98rem] text-slate;
+    position: relative;
+  }
+  .feature-list li::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    margin-top: 0.5rem;
+    border-radius: 9999px;
+    background-color: var(--color-lime-deep);
+    flex-shrink: 0;
+  }
+}
