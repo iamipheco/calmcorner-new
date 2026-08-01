@@ -28,6 +28,7 @@ const STEPS = [
   { label: 'Welcome', hint: "Let's get you started" },
   { label: 'Account Type', hint: 'What best describes you' },
   { label: 'Your Account', hint: 'Sign in or create an account' },
+  { label: 'Verify Email', hint: 'Confirm your email address' },
 ]
 
 function DotGrid({ className = '' }) {
@@ -166,17 +167,28 @@ export default function Portal() {
   }
   function handleSubmit(e) {
     e.preventDefault()
+    if (mode === 'signup') {
+      // New accounts see an email verification step before landing on
+      // their dashboard. Returning users (sign in) skip straight through
+      // since they're already verified.
+      setStepIndex(3)
+      return
+    }
+    completeOnboarding()
+  }
+  function completeOnboarding() {
     // NOTE: no backend/auth exists yet — this is a front-end preview of
-    // the intended flow. Wire this up to real authentication later.
-    // A brand-new realtor account needs to complete the realtor
-    // registration form (and get their referral link) before landing on
-    // their dashboard. Everyone else goes straight to their dashboard.
-    if (userType === 'realtor' && mode === 'signup') {
-      navigate('/portal/realtor-registration', { state: { name: form.name, email: form.email } })
-    } else if (userType === 'realtor') {
-      navigate('/portal/realtor-dashboard', { state: { name: form.name || 'Realtor' } })
+    // the intended flow. Wire this up to real authentication (and a real
+    // verification email) later. A returning user (sign in) is treated
+    // as already verified, since there's no way to persist that state
+    // without a backend. A brand-new signup is NOT verified yet — their
+    // dashboard will prompt them to complete the Realtor Registration
+    // form or the Client KYC form before unlocking full access.
+    const verified = mode === 'signin'
+    if (userType === 'realtor') {
+      navigate('/portal/realtor-dashboard', { state: { name: form.name || 'Realtor', email: form.email, verified } })
     } else {
-      navigate('/portal/dashboard', { state: { name: form.name, userType, mode } })
+      navigate('/portal/dashboard', { state: { name: form.name, email: form.email, userType, verified } })
     }
   }
 
@@ -416,6 +428,36 @@ export default function Portal() {
 
               {stepIndex === 2 && mode === 'forgot' && (
                 <ForgotPassword onBack={() => setMode('signin')} />
+              )}
+
+              {/* Step 4: Verify email (signup only) */}
+              {stepIndex === 3 && (
+                <div className="text-center">
+                  <div className="w-14 h-14 rounded-2xl bg-lime-soft flex items-center justify-center mx-auto mb-6">
+                    <Mail className="w-6 h-6 text-lime-deep" strokeWidth={1.8} />
+                  </div>
+                  <h1 className="text-2xl sm:text-3xl mb-2">Verify your email</h1>
+                  <p className="text-muted mb-2">
+                    We've sent a verification link to{' '}
+                    <span className="font-semibold text-ink">{form.email || 'your email address'}</span>.
+                  </p>
+                  <p className="text-muted mb-6 text-sm">
+                    Click the link in that email to confirm it's really you, then continue below.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <button onClick={back} className="btn btn-outline-dark justify-center" aria-label="Back">
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <button onClick={completeOnboarding} className="btn btn-lime justify-center flex-1">
+                      I've verified my email
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <p className="text-xs text-muted mt-6">
+                    Didn't get it? Check your spam folder, or{' '}
+                    <button type="button" className="font-bold text-lime-deep hover:text-lime">resend the email</button>.
+                  </p>
+                </div>
               )}
             </motion.div>
           </AnimatePresence>

@@ -182,10 +182,17 @@ export default function EstateDetail() {
                 </p>
 
                 {estate.landmarks && estate.landmarks.length > 0 && (
-                  <div className="mt-6">
+                  <div className="mt-6 rounded-2xl border border-line bg-white p-5">
                     <span className="text-xs font-bold uppercase tracking-wide text-muted">Nearby Landmarks</span>
-                    <ul className="feature-list mt-3 grid gap-2.5">
-                      {estate.landmarks.map((l) => <li key={l}>{l}</li>)}
+                    <ul className="mt-4 grid gap-3">
+                      {estate.landmarks.map((l) => (
+                        <li key={l} className="flex items-start gap-3">
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-lime-soft text-lime-deep">
+                            <MapPin className="h-3.5 w-3.5" strokeWidth={2} />
+                          </span>
+                          <span className="text-sm text-slate pt-0.5">{l}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 )}

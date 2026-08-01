@@ -7,9 +7,10 @@ const SECTIONS = [
   { key: 'personal', label: 'Personal Details' },
   { key: 'kin', label: 'Next-of-Kin' },
   { key: 'referral', label: 'Referral' },
-  { key: 'bank', label: 'Bank Details' },
   { key: 'declaration', label: 'Declaration' },
 ]
+
+const ID_TYPES = ["National ID (NIN)", "Driver's License", "International Passport", "Voter's Card"]
 
 function Field({ label, full, ...props }) {
   return (
@@ -32,7 +33,7 @@ function SelectField({ label, options, full, ...props }) {
   )
 }
 
-export default function RealtorRegistration() {
+export default function ClientRegistration() {
   const { state } = useLocation()
   const navigate = useNavigate()
   const [name] = useState(state?.name || '')
@@ -43,19 +44,15 @@ export default function RealtorRegistration() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    // Browser-native validation only checks visible (non-hidden) fields,
-    // so this naturally validates just the current step even though every
-    // step's fields stay mounted in the DOM (that's what keeps values from
-    // being lost when moving between steps).
     if (!isLast) {
       setStep((s) => s + 1)
       window.scrollTo({ top: 0, behavior: 'smooth' })
       return
     }
     // NOTE: no backend exists yet — nothing here is actually saved or
-    // verified. This just simulates the "registration complete, referral
-    // link generated" moment and sends the realtor to their dashboard.
-    navigate('/portal/realtor-dashboard', { state: { name: name || 'Realtor', verified: true, justCompletedForm: true } })
+    // verified. This simulates the "KYC complete, account verified"
+    // moment and sends the client to their dashboard.
+    navigate('/portal/dashboard', { state: { name: name || 'there', userType: 'client', verified: true, justCompletedForm: true } })
   }
 
   function back() {
@@ -81,7 +78,7 @@ export default function RealtorRegistration() {
 
         <div className="flex items-stretch rounded-lg overflow-hidden mb-6">
           <div className="flex-1 bg-ink px-5 py-3.5">
-            <h1 className="text-white text-base sm:text-lg font-bold uppercase tracking-wide">Calmcorner Elite Realtors Form</h1>
+            <h1 className="text-white text-base sm:text-lg font-bold uppercase tracking-wide">Land Subscription Form</h1>
           </div>
           <div className="w-14 bg-lime shrink-0" />
         </div>
@@ -89,8 +86,8 @@ export default function RealtorRegistration() {
         <div className="flex items-start gap-3 rounded-xl border border-lime-deep/25 bg-lime-soft/50 p-4 mb-6">
           <Info className="w-4.5 h-4.5 text-lime-deep shrink-0 mt-0.5" />
           <p className="text-sm text-muted">
-            <span className="font-bold text-ink">Complete your registration.</span> Welcome{name ? `, ${name}` : ''}!
-            To activate your realtor account and generate your referral link, fill in each step below.
+            <span className="font-bold text-ink">Complete your verification.</span> Welcome{name ? `, ${name}` : ''}!
+            This short KYC form confirms who you are and unlocks full access to your account.
           </p>
         </div>
 
@@ -136,20 +133,30 @@ export default function RealtorRegistration() {
               {/* Personal Details */}
               <div className={`grid sm:grid-cols-2 gap-5 ${step === 0 ? '' : 'hidden'}`}>
                 <Field label="First name" required={step === 0} defaultValue={name.split(' ')[0] || ''} />
-                <Field label="Last name" required={step === 0} defaultValue={name.split(' ').slice(1).join(' ')} />
+                <Field label="Middle name" />
+                <Field label="Surname" required={step === 0} defaultValue={name.split(' ').slice(1).join(' ')} />
                 <Field label="Phone number" type="tel" placeholder="080..." required={step === 0} />
+                <Field label="Address" full required={step === 0} />
+                <Field label="WhatsApp line" type="tel" placeholder="080..." />
                 <Field label="Email address" type="email" placeholder="you@email.com" required={step === 0} />
-                <Field label="Residential address" full required={step === 0} />
-                <Field label="City" required={step === 0} />
-                <Field label="State" required={step === 0} />
-                <SelectField label="Gender" options={['Male', 'Female']} required={step === 0} />
                 <Field label="Date of birth" type="date" required={step === 0} />
+                <SelectField label="Gender" options={['Male', 'Female']} required={step === 0} />
+                <SelectField label="Marital status" options={['Single', 'Married', 'Divorced', 'Widowed']} />
+                <Field label="Nationality" required={step === 0} />
                 <Field label="Occupation" required={step === 0} />
+                <Field label="Employer's name" />
+                <Field label="Employer's number" type="tel" />
+                <SelectField label="Type of ID" options={ID_TYPES} required={step === 0} />
+                <Field label="ID number" required={step === 0} />
+                <Field label="Date of issue" type="date" />
+                <Field label="Date of expiry" type="date" />
               </div>
 
               {/* Next-of-Kin */}
               <div className={`grid sm:grid-cols-2 gap-5 ${step === 1 ? '' : 'hidden'}`}>
-                <Field label="Full name" required={step === 1} />
+                <Field label="First name" required={step === 1} />
+                <Field label="Middle name" />
+                <Field label="Surname" required={step === 1} />
                 <Field label="Relationship" required={step === 1} />
                 <Field label="Phone number" type="tel" required={step === 1} />
                 <Field label="Email address" type="email" />
@@ -159,22 +166,18 @@ export default function RealtorRegistration() {
               {/* Referral */}
               <div className={`grid sm:grid-cols-2 gap-5 ${step === 2 ? '' : 'hidden'}`}>
                 <Field label="Referred by (optional)" />
-                <Field label="Referral's phone number (optional)" type="tel" />
-              </div>
-
-              {/* Bank Details */}
-              <div className={`grid sm:grid-cols-2 gap-5 ${step === 3 ? '' : 'hidden'}`}>
-                <Field label="Bank name" required={step === 3} />
-                <Field label="Account number" required={step === 3} />
-                <Field label="Account name" full required={step === 3} />
+                <Field label="Referral's email address (optional)" type="email" />
               </div>
 
               {/* Declaration */}
-              <div className={step === 4 ? '' : 'hidden'}>
+              <div className={step === 3 ? '' : 'hidden'}>
                 <p className="text-muted mb-4">
                   I, <span className="font-semibold text-ink">{name || '[Full Name]'}</span>, hereby
-                  declare that the information stated above is true and accurate to the best of my
-                  knowledge.
+                  declare that the information provided in this Subscription (KYC) Form is true and
+                  accurate to the best of my knowledge. I guarantee the genuineness of the funds used
+                  for this purchase. I consent to any legal use of the supplied information, and I
+                  will abide by the Terms and Conditions of the estate, the property, and/or
+                  Calmcorner Homes and Properties Ltd.
                 </p>
                 <label className="flex items-start gap-2.5 text-sm text-slate">
                   <input
@@ -182,9 +185,9 @@ export default function RealtorRegistration() {
                     checked={agreed}
                     onChange={(e) => setAgreed(e.target.checked)}
                     className="mt-0.5 accent-lime-deep"
-                    required={step === 4}
+                    required={step === 3}
                   />
-                  I confirm the above declaration and agree to Calmcorner's realtor terms.
+                  I confirm the above declaration and agree to Calmcorner's terms.
                 </label>
               </div>
             </div>
@@ -200,7 +203,7 @@ export default function RealtorRegistration() {
                 disabled={isLast && !agreed}
                 className="btn btn-lime justify-center flex-1 disabled:opacity-40 disabled:pointer-events-none"
               >
-                {isLast ? 'Complete Registration & Get My Referral Link' : 'Continue'}
+                {isLast ? 'Complete Verification' : 'Continue'}
                 {!isLast && <ChevronRight className="w-4 h-4" />}
               </button>
             </div>

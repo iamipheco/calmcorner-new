@@ -20,7 +20,7 @@ export default function Home() {
       <FeaturedProperties dividerFill="#0A1220" />
 
       {/* 3. Who We Are — 2-column image + text */}
-      <WhoWeAre dividerFill="#EFF4E5" />
+      <WhoWeAre dividerFill="#F4F4F1" />
 
       {/* 4. Mission & Vision — two cards side by side */}
       <MissionVision dividerFill="#0A1220" />
