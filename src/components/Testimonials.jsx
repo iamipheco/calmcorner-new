@@ -45,8 +45,8 @@ return(
 <p className="mt-4 text-muted">Real experiences from people who trusted Calmcorner with their property investments.</p>
 </Reveal>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 mb-14">
-{stats.map(s=><div key={s.label} className="bg-white rounded-2xl p-5 sm:p-6 border border-line text-center shadow-sm"><s.icon className="mx-auto w-8 h-8 text-lime-600"/><h3 className="text-3xl font-bold mt-3">{s.value}</h3><p className="text-muted">{s.label}</p></div>)}
+<div className="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-5 mt-10 mb-14">
+{stats.map(s=><div key={s.label} className="bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-5 lg:p-6 border border-line text-center shadow-sm"><s.icon className="mx-auto w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-lime-600"/><h3 className="text-base sm:text-2xl lg:text-3xl font-bold mt-1.5 sm:mt-3">{s.value}</h3><p className="text-muted text-[11px] sm:text-sm leading-tight mt-0.5 sm:mt-0">{s.label}</p></div>)}
 </div>
 
 <div className="flex items-center justify-center gap-6">

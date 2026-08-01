@@ -106,7 +106,7 @@ export default function WhyChooseCalmcorner({ dividerFill }) {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
-            className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3"
+            className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-3"
           >
             {FEATURES.map((feature, index) => {
               const Icon = feature.icon
@@ -117,7 +117,7 @@ export default function WhyChooseCalmcorner({ dividerFill }) {
                   custom={index}
                   variants={cardVariants}
                   whileHover={{ y: -5 }}
-                  className="group relative min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] p-5 sm:p-6"
+                  className="group relative min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] p-4 sm:p-6"
                 >
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-lime/[0.07] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
