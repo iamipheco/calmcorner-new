@@ -22,7 +22,7 @@ export default function Properties() {
 
       <FeaturedProperties />
 
-      <section className="pb-24">
+      <section className="relative pb-24 overflow-hidden">
         <div className="container-custom">
           <SectionHeading
             eyebrow="Coming Next"

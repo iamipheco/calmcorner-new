@@ -3,10 +3,12 @@ import { motion } from 'framer-motion'
 import SectionHeading from '../components/SectionHeading'
 import Reveal from '../components/Reveal'
 import PageHero from '../components/PageHero'
+import Watermark from '../components/Watermark'
 import CTABand from '../components/CTABand'
 import WaveDivider from '../components/WaveDivider'
 import StatCard from '../components/StatCard'
 import HowWeWork from '../components/HowWeWork'
+import Leadership from '../components/Leadership'
 import Testimonials from '../components/Testimonials'
 import {
   OUR_STORY,
@@ -28,7 +30,7 @@ export default function About() {
       />
 
       {/* Our Story — split layout */}
-      <section className="py-24 md:py-28 bg-white">
+      <section className="relative py-24 md:py-28 bg-white overflow-hidden">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-14 md:gap-16 items-center">
             <Reveal>
@@ -54,10 +56,15 @@ export default function About() {
             </div>
           </div>
         </div>
+        <WaveDivider fill="#0A1220" />
       </section>
+
+      {/* Leadership — full bios live here; the Homepage links back to this section */}
+      <Leadership dividerFill="#F4F4F1" />
 
       {/* Statistics */}
       <section className="relative py-20 md:py-24 bg-stone overflow-hidden">
+        <Watermark position="top-right" />
         <div className="container-custom">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCard dark={false} icon={ShieldCheck} value="100%" label="Verified Properties" />
@@ -71,6 +78,7 @@ export default function About() {
 
       {/* Core Values — C.A.L.M.C.O.R.N.E.R */}
       <section className="relative bg-ink text-white py-8 md:py-12 pb-28 overflow-hidden">
+        <Watermark dark position="bottom-left" size="w-80" />
         <div className="container-custom relative z-10">
           <SectionHeading eyebrow="Our core values" title="C.A.L.M.C.O.R.N.E.R" light center />
           <div className="grid sm:grid-cols-2 gap-5">
@@ -93,7 +101,8 @@ export default function About() {
       </section>
 
       {/* Vision / Mission / Purpose */}
-      <section className="py-8 md:py-12 pb-20 bg-white">
+      <section className="relative py-8 md:py-12 pb-20 bg-white overflow-hidden">
+        <Watermark position="top-right" />
         <div className="container-custom">
           <SectionHeading eyebrow="What drives us" title="Vision, Mission & Purpose" center />
           <div className="grid md:grid-cols-3 gap-6">
@@ -125,7 +134,8 @@ export default function About() {
       </section>
 
       {/* Why Choose Calmcorner */}
-      <section className="py-8 md:py-12 pb-20 bg-stone">
+      <section className="relative py-8 md:py-12 pb-20 bg-stone overflow-hidden">
+        <Watermark position="bottom-right" />
         <div className="container-custom">
           <SectionHeading eyebrow="Why choose Calmcorner" title="Your peaceful path to property ownership" lede={WHY_CHOOSE_INTRO} />
           <div className="grid md:grid-cols-2 gap-x-10 gap-y-6">

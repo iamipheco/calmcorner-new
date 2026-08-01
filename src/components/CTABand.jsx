@@ -1,4 +1,5 @@
 import Reveal from './Reveal'
+import Watermark from './Watermark'
 import { waLink } from '../siteConfig'
 
 /**
@@ -22,7 +23,8 @@ export default function CTABand({
   to,
 }) {
   return (
-    <section className="bg-lime py-16 md:py-20">
+    <section className="relative bg-lime py-16 md:py-20 overflow-hidden">
+      <Watermark position="bottom-left" size="w-100" rotate="-rotate-6" />
       <div className="container-custom">
         <Reveal>
           <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/20 bg-white/10 px-8 py-10 text-center backdrop-blur-sm md:flex-row md:text-left">

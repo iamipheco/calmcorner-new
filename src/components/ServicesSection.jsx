@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Reveal from "./Reveal";
 import WaveDivider from "./WaveDivider";
+import Watermark from "./Watermark";
 import { SERVICES, SERVICES_INTRO } from "../data/services";
 import servicesImg from "../assets/services.jpg";
 
@@ -12,6 +13,7 @@ export default function ServicesSection({
 }) {
   return (
     <section className="relative bg-mist py-24 md:py-28 overflow-hidden">
+      <Watermark position="top-right" />
       <div className="container-custom relative z-10">
         {/* Image + text intro — same layout as the About page's "Our Story" */}
         <Reveal className="grid md:grid-cols-2 gap-14 md:gap-16 items-center mb-24 md:mb-28">

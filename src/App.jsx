@@ -18,10 +18,27 @@ import Realtors from './pages/Realtors'
 import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   useEffect(() => {
+    if (hash) {
+      const id = hash.slice(1)
+      let attempts = 0
+      const interval = setInterval(() => {
+        const el = document.getElementById(id)
+        attempts += 1
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          clearInterval(interval)
+        } else if (attempts > 15) {
+          // Gave up looking (~1.5s) — target genuinely isn't on this page.
+          window.scrollTo(0, 0)
+          clearInterval(interval)
+        }
+      }, 100)
+      return () => clearInterval(interval)
+    }
     window.scrollTo(0, 0)
-  }, [pathname])
+  }, [pathname, hash])
   return null
 }
 

@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
+import Watermark from "./Watermark";
 import WaveDivider from "./WaveDivider";
 import { FEATURED_ESTATES } from "../data/estates";
 import { waLink } from "../siteConfig";
@@ -46,7 +47,8 @@ export default function FeaturedProperties({ dividerFill }) {
   const highlights = (estate.highlights || []).slice(0, 4);
 
   return (
-    <section className="relative bg-white py-6 pb-20 lg:py-16">
+    <section className="relative bg-white py-6 pb-20 lg:py-16 overflow-hidden">
+      <Watermark position="top-right" />
       <div className="container-custom">
         <SectionHeading
           eyebrow="Featured Investment"

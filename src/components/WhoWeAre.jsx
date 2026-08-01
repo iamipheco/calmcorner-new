@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import Reveal from './Reveal'
 import WaveDivider from './WaveDivider'
+import Watermark from './Watermark'
 
 export default function WhoWeAre({ dividerFill }) {
   return (
     <section className="relative py-16 pb-28 bg-ink overflow-hidden">
+      <Watermark dark position="bottom-right" size="w-150" />
       <div className="container-custom relative z-10">
         <div className="grid md:grid-cols-2 gap-14 md:gap-20 items-center">
           {/* Image */}
