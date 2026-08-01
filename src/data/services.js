@@ -1,58 +1,89 @@
-// Shared service content — used on both the Home page teaser section and
-// the full Services page, so copy only needs to be updated in one place.
+// Shared service content for the Services page.
 
 export const SERVICES = [
   {
-    num: '01',
+    icon: 'home',
     tag: 'Acquisition',
     title: 'Land & Property Sales',
-    body: "We offer verified residential, commercial, and investment properties with complete due diligence, ensuring every transaction is secure, transparent, and hassle-free. Whether you're buying your first plot or expanding your investment portfolio, we help you make informed decisions with confidence.",
+    description: "Verified residential, commercial, and investment properties with complete due diligence, so every transaction is secure, transparent, and hassle-free.",
     features: [
       'Verified titles and documentation on every listing',
       'Options across residential, commercial, and investment land',
       'Guided support from search through to sign-off',
     ],
     cta: { label: 'View available property', to: '/properties' },
-    image: '/images/hero/slide-3.jpg',
   },
   {
-    num: '02',
+    icon: 'building',
     tag: 'Development',
-    title: 'Property Development & Management',
-    body: 'We transform raw land into well-planned, high-value developments while providing professional property management services that preserve and enhance the value of your real estate assets for years to come.',
+    title: 'Property Development',
+    description: 'Transforming raw land into well-planned, high-value developments — from site planning through to a finished, ready-to-use property.',
     features: [
       'Site planning and layout for raw land',
+      'Infrastructure and access road development',
       'End-to-end project management',
-      'Ongoing property management after development',
     ],
     cta: { label: 'Discuss a development', to: '/contact' },
-    image: '/images/hero/slide-2.jpg',
   },
   {
-    num: '03',
+    icon: 'key',
+    tag: 'Management',
+    title: 'Property Management',
+    description: 'Ongoing management that preserves and enhances the value of your real estate assets, so owning property stays hands-off and stress-free.',
+    features: [
+      'Tenant and facility management',
+      'Maintenance oversight and inspections',
+      'Regular reporting on your property',
+    ],
+    cta: { label: 'Talk to us about management', to: '/contact' },
+  },
+  {
+    icon: 'hammer',
     tag: 'Construction',
     title: 'Building & Home Construction',
-    body: 'From concept and planning to construction and finishing, we deliver durable, high-quality homes and commercial buildings designed to withstand Nigerian conditions while meeting modern standards of comfort, functionality, and style.',
+    description: 'Durable, high-quality homes and commercial buildings designed to withstand Nigerian conditions while meeting modern standards of comfort and style.',
     features: [
       'Custom design and planning',
       'Quality materials and skilled supervision on site',
       'Built to withstand Nigerian conditions',
     ],
     cta: { label: 'Start a construction project', to: '/contact' },
-    image: '/images/hero/slide-1.jpg',
   },
   {
-    num: '04',
-    tag: 'Consultancy',
-    title: 'Real Estate Consultancy & Brokerage',
-    body: 'Our experienced consultants provide expert guidance on property acquisition, sales, investment opportunities, valuation, and market trends. We help buyers, sellers, and investors navigate the real estate market with confidence and make profitable decisions.',
+    icon: 'lightbulb',
+    tag: 'Advisory',
+    title: 'Real Estate Consultancy & Advisory',
+    description: 'Expert guidance on property acquisition, valuation, and market trends, so you can make decisions with real clarity instead of guesswork.',
     features: [
       'Market valuation and investment advice',
-      'Buyer and seller representation',
+      'Personalized property strategy',
       'Market trend analysis for smarter decisions',
     ],
     cta: { label: 'Book a consultation', to: '/contact' },
-    image: null,
+  },
+  {
+    icon: 'handshake',
+    tag: 'Brokerage',
+    title: 'Real Estate Brokerage',
+    description: 'Professional representation for buyers and sellers, handling negotiation and paperwork so your transaction closes with confidence.',
+    features: [
+      'Buyer and seller representation',
+      'Negotiation support',
+      'Transparent, guided transaction process',
+    ],
+    cta: { label: 'Work with a broker', to: '/contact' },
+  },
+  {
+    icon: 'trending',
+    tag: 'Investment',
+    title: 'Real Estate Investment & Portfolio Management',
+    description: 'Strategic guidance to help investors build, diversify, and manage a property portfolio with long-term, sustainable returns.',
+    features: [
+      'Investment strategy and planning',
+      'Portfolio diversification advice',
+      'Ongoing performance review',
+    ],
+    cta: { label: 'Grow your portfolio', to: '/contact' },
   },
 ]
 

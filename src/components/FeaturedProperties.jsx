@@ -10,6 +10,8 @@ import {
   Droplets,
   Zap,
   ShieldCheck,
+  Rocket,
+  Hammer,
 } from "lucide-react";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
@@ -27,6 +29,8 @@ const icons = {
   water: Droplets,
   power: Zap,
   security: ShieldCheck,
+  instant: Rocket,
+  build: Hammer,
 };
 
 export default function FeaturedProperties({ dividerFill }) {
@@ -84,7 +88,7 @@ export default function FeaturedProperties({ dividerFill }) {
                   </div>
                   <div className="flex justify-center flex-col p-8 lg:p-16 bg-white lg:min-h-180">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-lime-deep">
-                      {estate.location}
+                      {estate.area || estate.location}
                     </p>
 
                     <h2 className="mt-4 text-2xl sm:text-5xl lg:text-6xl font-bold">

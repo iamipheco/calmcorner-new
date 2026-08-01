@@ -15,12 +15,15 @@ import {
   Zap,
   ShieldCheck,
   CheckCircle2,
+  Rocket,
+  Hammer,
 } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import CTABand from '../components/CTABand'
 import { CardRipples } from '../components/Ripples'
 import { FEATURED_ESTATES, OTHER_ESTATES } from '../data/estates'
 import { waLink, SITE } from '../siteConfig'
+import Watermark from '../components/Watermark'
 
 const ICONS = {
   road: Car,
@@ -34,6 +37,8 @@ const ICONS = {
   water: Droplets,
   power: Zap,
   security: ShieldCheck,
+  instant: Rocket,
+  build: Hammer,
 }
 
 const GRADIENTS = [
@@ -88,7 +93,8 @@ export default function EstateDetail() {
   return (
     <>
       {/* Hero: gallery + key details */}
-      <section className="py-16 md:py-20">
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        <Watermark position="top-left" size="w-600" rotate="-rotate-4" />
         <div className="container-custom">
           <Reveal>
             <Link to="/properties" className="mb-8 inline-flex items-center gap-2 text-muted hover:text-ink">
@@ -167,7 +173,7 @@ export default function EstateDetail() {
 
               {/* Key details */}
               <div className="flex flex-col justify-center">
-                <span className="eyebrow">{estate.location}</span>
+                <span className="eyebrow">{estate.area || estate.location}</span>
                 <h1 className="mt-3 text-3xl md:text-4xl font-bold">{estate.name}</h1>
 
                 <p className="mt-3 flex items-center gap-2 text-muted">
@@ -239,12 +245,12 @@ export default function EstateDetail() {
               <span className="eyebrow">What's included</span>
               <h2 className="mt-3.5 mb-10 text-3xl md:text-4xl">Property Highlights</h2>
             </Reveal>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               {highlights.map((h, i) => {
                 const Icon = ICONS[h.icon] || CheckCircle2
                 return (
                   <Reveal delay={i * 0.05} key={h.label}>
-                    <div className="flex items-center gap-3 rounded-xl border border-line bg-white p-4">
+                    <div className="flex items-center gap-2.5 sm:gap-3 rounded-xl border border-line bg-white p-3 sm:p-4">
                       <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-lime-soft text-lime-deep">
                         <Icon className="h-5 w-5" strokeWidth={1.8} />
                       </span>
@@ -283,7 +289,7 @@ export default function EstateDetail() {
                   className="w-full h-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  src={`https://www.google.com/maps?q=${encodeURIComponent(estate.mapQuery)}&output=embed`}
+                  src={estate.mapEmbedUrl || `https://www.google.com/maps?q=${encodeURIComponent(estate.mapQuery)}&output=embed`}
                 />
               </div>
             </Reveal>
