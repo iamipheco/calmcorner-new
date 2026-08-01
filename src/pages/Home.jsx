@@ -1,4 +1,5 @@
 import HeroSlider from '../components/HeroSlider'
+import StatsStrip from '../components/StatsStrip'
 import WhoWeAre from '../components/WhoWeAre'
 import MissionVision from '../components/MissionVision'
 import Leadership from '../components/Leadership'
@@ -13,6 +14,7 @@ export default function Home() {
     <>
       {/* 1. Hero Slides — full-screen image + company stats (HeroSlider.jsx) */}
       <HeroSlider />
+      <StatsStrip />
 
       {/* 2. Our Featured Properties */}
       <FeaturedProperties dividerFill="#0A1220" />

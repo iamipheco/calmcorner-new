@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ShieldCheck, Headphones, FileCheck2, Wallet } from 'lucide-react'
 import WaveDivider from './WaveDivider'
 import TypewriterHeading from './TypewriterHeading'
-import StatCard from './StatCard'
 import { waLink } from '../siteConfig'
 
 // Drop real photos into /public/images/hero/ named slide-1.jpg, slide-2.jpg,
@@ -158,16 +156,6 @@ export default function HeroSlider() {
               />
             ))}
           </div>
-        </div>
-
-        {/* Stat strip — honest company facts, not tied to the slide rotation.
-            (Swapped out for figures like "years in business" or "clients served"
-            since the company only just launched — see chat for context.) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/15 mt-10 pt-9">
-          <StatCard icon={ShieldCheck} value="100%" label="Verified Properties" />
-          <StatCard icon={Headphones} value="24/7" label="Customer Support" />
-          <StatCard icon={FileCheck2} value="End-to-End" label="Documentation" />
-          <StatCard icon={Wallet} value="Flexible" label="Payment Plans" />
         </div>
       </div>
 

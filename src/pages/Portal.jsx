@@ -77,6 +77,64 @@ function IconField({ icon: Icon, type = 'text', ...props }) {
   )
 }
 
+function ForgotPassword({ onBack }) {
+  const [sent, setSent] = useState(false)
+  const [email, setEmail] = useState('')
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    // NOTE: no backend exists yet — this only shows a confirmation state.
+    // Wire this up to a real password-reset email once auth is built.
+    setSent(true)
+  }
+
+  if (sent) {
+    return (
+      <div className="text-center">
+        <div className="w-14 h-14 rounded-2xl bg-lime-soft flex items-center justify-center mx-auto mb-6">
+          <Mail className="w-6 h-6 text-lime-deep" strokeWidth={1.8} />
+        </div>
+        <h1 className="text-2xl sm:text-3xl mb-2">Check your email</h1>
+        <p className="text-muted mb-8">
+          If an account exists for <span className="font-semibold text-ink">{email}</span>, a
+          password reset link is on its way.
+        </p>
+        <button onClick={onBack} className="btn btn-outline-dark justify-center w-full">
+          <ChevronLeft className="w-4 h-4" />
+          Back to sign in
+        </button>
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <div className="w-14 h-14 rounded-2xl bg-lime-soft flex items-center justify-center mx-auto mb-6">
+        <Lock className="w-6 h-6 text-lime-deep" strokeWidth={1.8} />
+      </div>
+      <h1 className="text-2xl sm:text-3xl mb-2 text-center">Reset your password</h1>
+      <p className="text-muted mb-6 text-center">
+        Enter your email and we'll send you a link to reset it.
+      </p>
+      <form onSubmit={handleSubmit} className="grid gap-4">
+        <div>
+          <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-muted">Email address</label>
+          <IconField icon={Mail} type="email" placeholder="you@email.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        </div>
+        <div className="mt-2 flex gap-3">
+          <button type="button" onClick={onBack} className="btn btn-outline-dark" aria-label="Back">
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button type="submit" className="btn btn-lime justify-center flex-1">
+            Send reset link
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+      </form>
+    </div>
+  )
+}
+
 export default function Portal() {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
@@ -109,9 +167,17 @@ export default function Portal() {
   function handleSubmit(e) {
     e.preventDefault()
     // NOTE: no backend/auth exists yet — this is a front-end preview of
-    // the intended flow. Wire this up to real authentication later, then
-    // send the user to /portal/dashboard on success.
-    navigate('/portal/dashboard', { state: { name: form.name, userType, mode } })
+    // the intended flow. Wire this up to real authentication later.
+    // A brand-new realtor account needs to complete the realtor
+    // registration form (and get their referral link) before landing on
+    // their dashboard. Everyone else goes straight to their dashboard.
+    if (userType === 'realtor' && mode === 'signup') {
+      navigate('/portal/realtor-registration', { state: { name: form.name, email: form.email } })
+    } else if (userType === 'realtor') {
+      navigate('/portal/realtor-dashboard', { state: { name: form.name || 'Realtor' } })
+    } else {
+      navigate('/portal/dashboard', { state: { name: form.name, userType, mode } })
+    }
   }
 
   return (
@@ -257,7 +323,7 @@ export default function Portal() {
               )}
 
               {/* Step 3: Sign in / create account */}
-              {stepIndex === 2 && (
+              {stepIndex === 2 && mode !== 'forgot' && (
                 <div>
                   <div className="w-14 h-14 rounded-2xl bg-lime-soft flex items-center justify-center mx-auto mb-6">
                     <img src={logoIconDark} alt="" className="w-7 h-7" />
@@ -313,7 +379,7 @@ export default function Portal() {
                           <input type="checkbox" defaultChecked className="accent-lime-deep" />
                           Remember me
                         </label>
-                        <button type="button" className="font-semibold text-lime-deep hover:text-lime">
+                        <button type="button" onClick={() => setMode('forgot')} className="font-semibold text-lime-deep hover:text-lime">
                           Forgot password?
                         </button>
                       </div>
@@ -346,6 +412,10 @@ export default function Portal() {
                     )}
                   </p>
                 </div>
+              )}
+
+              {stepIndex === 2 && mode === 'forgot' && (
+                <ForgotPassword onBack={() => setMode('signin')} />
               )}
             </motion.div>
           </AnimatePresence>
