@@ -1,6 +1,7 @@
 import { useLocation, Link } from 'react-router-dom'
 import { LayoutDashboard, FileText, CreditCard, Settings, LogOut, Sparkles } from 'lucide-react'
 import logoIcon from '../assets/logo-icon.png'
+import logoIconDark from '../assets/logo-icon-dark.png'
 import { waLink } from '../siteConfig'
 
 const NAV = [
@@ -18,13 +19,23 @@ export default function PortalDashboard() {
   return (
     <section className="min-h-screen bg-stone">
       <div className="container-custom py-10">
+        <div className="lg:hidden flex items-center justify-between mb-8">
+          <Link to="/" className="group flex items-center gap-2.5">
+            <img src={logoIcon} alt="" className="h-7 w-7" />
+            <span className="font-display font-semibold text-ink text-sm group-hover:text-lime-deep transition-colors">Calmcorner Portal</span>
+          </Link>
+          <Link to="/portal" className="flex items-center gap-2 text-sm font-semibold text-muted hover:text-ink">
+            <LogOut className="w-4 h-4" />
+            Exit
+          </Link>
+        </div>
         <div className="grid lg:grid-cols-[240px_1fr] gap-8">
           {/* Sidebar */}
           <aside className="hidden lg:block">
-            <div className="flex items-center gap-2.5 mb-8 px-2">
+            <Link to="/" className="group flex items-center gap-2.5 mb-8 px-2">
               <img src={logoIcon} alt="" className="h-7 w-7" />
-              <span className="font-display font-semibold text-ink text-sm">Calmcorner Portal</span>
-            </div>
+              <span className="font-display font-semibold text-ink text-sm group-hover:text-lime-deep transition-colors">Calmcorner Portal</span>
+            </Link>
             <nav className="grid gap-1">
               {NAV.map((n) => (
                 <span
@@ -46,9 +57,15 @@ export default function PortalDashboard() {
 
           {/* Main */}
           <div>
-            <div className="bg-white border border-line rounded-2xl p-8 mb-6">
-              <h1 className="text-2xl mb-1.5">Welcome, {name}!</h1>
-              <p className="text-muted">
+            <div className="relative bg-white border border-line rounded-2xl p-8 mb-6 overflow-hidden">
+              <img
+                src={logoIconDark}
+                alt=""
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-8 -top-8 w-40 opacity-[0.05] rotate-12"
+              />
+              <h1 className="relative text-2xl mb-1.5">Welcome, {name}!</h1>
+              <p className="relative text-muted">
                 You're signed in as a {userType === 'realtor' ? 'realtor' : 'client'}.
               </p>
             </div>

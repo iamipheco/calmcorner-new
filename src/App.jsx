@@ -52,15 +52,18 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
+  const location = useLocation()
+  const isPortal = location.pathname.startsWith('/portal')
+
   return (
     <>
       <ScrollToTop />
-      <Header />
+      {!isPortal && <Header />}
       <main>
         <AnimatedRoutes />
       </main>
-      <Footer />
-      <WhatsAppFloat />
+      {!isPortal && <Footer />}
+      {!isPortal && <WhatsAppFloat />}
     </>
   )
 }
