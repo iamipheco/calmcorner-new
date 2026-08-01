@@ -2,6 +2,7 @@ import Reveal from '../components/Reveal'
 import PageHero from '../components/PageHero'
 import Socials from '../components/Socials'
 import CTABand from '../components/CTABand'
+import Watermark from '../components/Watermark'
 import { waLink, SITE } from '../siteConfig'
 
 export default function Contact() {
@@ -13,7 +14,8 @@ export default function Contact() {
         dividerFill="#FFFFFF"
       />
 
-      <section className="py-24 md:py-28">
+      <section className="relative py-24 md:py-28 overflow-hidden">
+        <Watermark position="top-right" />
         <div className="container-custom">
           <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-16">
             <Reveal>

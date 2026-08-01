@@ -26,7 +26,7 @@ export default function Home() {
       <MissionVision dividerFill="#0A1220" />
 
       {/* 5. Leadership — alternating photo/text rows */}
-      <Leadership dividerFill="#F6FAEF" />
+      <Leadership dividerFill="#F6FAEF" compact />
 
       {/* 6. Our Services — light mint background, simple icon cards */}
       <ServicesGrid dividerFill="#0A1220" />

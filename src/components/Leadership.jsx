@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Linkedin, Facebook, UserRound } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import WaveDivider from './WaveDivider'
+import Watermark from './Watermark'
 
 const LEADERS = [
   {
@@ -10,6 +12,7 @@ const LEADERS = [
     name: 'Ekenedilichukwu Kennedy Udemezue',
     role: 'MD & Chief Executive Officer',
     photo: '/images/team/ceo.jpg',
+    shortBio: "As Chief Executive Officer, Kennedy provides the strategic direction and vision that positions Calmcorner as a trusted, growth-focused real estate company.",
     bio: "As Managing Director & Chief Executive Officer of Calmcorner Homes & Properties Ltd, Kennedy provides the strategic direction that drives the company's growth and long-term vision. Passionate about transforming the real estate experience, he is committed to building a company founded on trust, transparency, and lasting value. His leadership focuses on creating opportunities that help clients invest with confidence while positioning Calmcorner as a trusted name in the industry.",
     quote: "Building trust through every property investment.",
     socials:{linkedin:'#',x:'#',facebook:'#'}
@@ -19,6 +22,7 @@ const LEADERS = [
     name:'Anyaefiena Ifechukwu Mathias',
     role:'Director & Chief Operating Officer',
     photo:'/images/team/coo.jpg',
+    shortBio: "As Chief Operating Officer, Ifechukwu ensures operational excellence, efficient execution, and a client-first experience that drives Calmcorner's success.",
     bio:"As Director and Chief Operating Officer, Ifechukwu oversees the operational excellence that powers Calmcorner's day-to-day success. He leads the execution of the company's vision by ensuring seamless service delivery, efficient processes, and an exceptional client experience. His dedication to quality, accountability, and continuous improvement helps transform every client interaction into a trusted partnership.",
     quote:"Operational excellence is the foundation of lasting client confidence.",
     socials:{linkedin:'#',x:'#',facebook:'#'},
@@ -38,9 +42,10 @@ function LeaderPhoto({photo,name}){
  return <img src={photo} alt={name} onError={()=>setErrored(true)} className="w-full aspect-[4/5] rounded-[22px] object-cover object-center shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"/>
 }
 
-export default function Leadership({dividerFill}){
+export default function Leadership({dividerFill, compact=false}){
  return (
-<section className="relative overflow-hidden bg-ink py-10 md:py-16 text-white">
+<section id="leadership" className="relative overflow-hidden bg-ink py-10 md:py-16 text-white">
+<Watermark dark position="bottom-left" size="w-900" rotate="-rotate-10" />
 <div className="absolute -left-24 top-24 h-96 w-96 rounded-full bg-lime/5 blur-3xl"/>
 <div className="absolute -right-20 bottom-10 h-80 w-80 rounded-full bg-lime/5 blur-3xl"/>
 <div className="container-custom relative z-10">
@@ -54,8 +59,14 @@ export default function Leadership({dividerFill}){
 <span className="mb-5 inline-flex items-center rounded-full border border-lime/20 bg-lime/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-lime">{l.tag}</span>
 <h3 className="text-3xl font-bold leading-tight tracking-tight text-white md:text-5xl">{l.name}</h3>
 <p className="mb-6 mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-lime">{l.role}</p>
-<p className="max-w-xl text-base leading-8 text-white/65 md:text-lg">{l.bio}</p>
+<p className="max-w-xl text-base leading-8 text-white/65 md:text-lg">{compact ? l.shortBio : l.bio}</p>
+{compact ? (
+<Link to="/about#leadership" className="mt-6 inline-flex items-center gap-2 font-bold text-lime hover:text-white transition-colors">
+  Learn More →
+</Link>
+) : (
 <div className="mt-8 border-l-2 border-lime pl-5"><p className="italic text-white/45">"{l.quote}"</p></div>
+)}
 <div className="mt-8 flex gap-3">
 {[['linkedin',Linkedin],['x',XIcon],['facebook',Facebook]].map(([k,Icon])=><a key={k} href={l.socials[k]} className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/80 transition-all duration-300 hover:-translate-y-1 hover:bg-lime hover:text-ink hover:shadow-lg"><Icon className="h-4 w-4"/></a>)}
 </div>

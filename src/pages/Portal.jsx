@@ -243,7 +243,7 @@ export default function Portal() {
           src={logoIconDark}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute -right-12 -top-12 w-100 opacity-[0.05] rotate-8"
+          className="pointer-events-none absolute -right-12 -top-12 w-250 opacity-[0.03] rotate-15"
         />
 
         {/* Mobile-only logo bar — left panel (which normally holds this) is desktop-only */}
